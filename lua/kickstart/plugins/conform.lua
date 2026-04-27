@@ -22,6 +22,10 @@ return {
         local enabled_filetypes = {
           -- lua = true,
           -- python = true,
+          javascript = true,
+          typescript = true,
+          javascriptreact = true,
+          typescriptreact = true,
         }
         if enabled_filetypes[vim.bo[bufnr].filetype] then
           return { timeout_ms = 500 }
@@ -34,6 +38,7 @@ return {
       },
       -- You can also specify external formatters in here.
       formatters_by_ft = {
+        javascript = { 'biome', 'prettierd', 'prettier', stop_after_first = false },
         -- rust = { 'rustfmt' },
         -- Conform can also run multiple formatters sequentially
         -- python = { "isort", "black" },
